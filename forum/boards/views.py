@@ -3,7 +3,9 @@ from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.http import HttpResponse
 
-from .forms import CustomUserCreationForm, UserLoginForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm, UserLoginForm
+from .models import CustomUser
+import re
 
 def main_page(request):
     context = {'title': 'Главная'}
@@ -40,6 +42,27 @@ def registration(request):
         form = CustomUserCreationForm()
     context = {'title': 'Регистрация', 'form': form}
     return render(request, 'html/registration.html', context)
+
+def change_form(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = CustomUserChangeForm(request.POST, request.FILES, instance=request.user)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Успешное изменение')
+                return redirect('main_page')
+            else:
+                messages.error(request, 'Ошибка в изменение')
+        else:
+            data = CustomUser.objects.get(id=request.user.id)
+            form = CustomUserChangeForm()
+            form = CustomUserChangeForm(initial={'username': data.username, 'first_name': data.first_name,
+                                                 'last_name': data.last_name, 'email': data.email})
+        context = {'title': 'Регистрация', 'form': form}
+        return render(request, 'html/change_form.html', context)
+    else:
+        context = {'title': 'Домашняя страница'}
+        return render(request, 'html/home.html', context)
 
 def category(request):
     context = {'title': 'Category'}

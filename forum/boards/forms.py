@@ -19,7 +19,7 @@ class CustomUserCreationForm(UserCreationForm):
     password1 = CharField(label='Пароль', widget=PasswordInput(attrs={'class': 'form-control', 'autocomplete': 'off'}))
     password2 = CharField(label='Пароль еще раз', widget=PasswordInput(attrs={'class': 'form-control'}))
     information = CharField(label='О себе', widget=TextInput(attrs={'class': 'form-control'}))
-    photo = CharField(label='О себе', widget=FileInput(attrs={'class': 'form-control'}))
+    photo = ImageField(label='О себе', widget=FileInput(attrs={'class': 'form-control', 'upload_to': 'photos'}))
 
     class Meta(UserCreationForm):
         model = CustomUser
@@ -33,6 +33,7 @@ class CustomUserChangeForm(ModelForm):
     first_name = CharField(label='Имя', required=False, widget=TextInput(attrs={'class': 'form-control'}))
     last_name = CharField(label='Фамилия', required=False, widget=TextInput(attrs={'class': 'form-control'}))
     email = EmailField(label='E-mail', required=False, widget=EmailInput(attrs={'class': 'form-control'}))
+    photo = ImageField(label='О себе', widget=FileInput(attrs={'class': 'form-control', 'upload_to': 'photos'}))
 
     class Meta:
         model = CustomUser

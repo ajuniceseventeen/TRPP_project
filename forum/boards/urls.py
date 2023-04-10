@@ -22,9 +22,11 @@ from boards import views
 urlpatterns = [
     path('', views.main_page, name='main_page'),
     path('main_page', views.main_page, name='main_page'),
+    path('home', views.main_page, name='main_page'),
     path('registration', views.registration, name='registration'),
     path('login', views.user_login, name='login'),
     path('logout', views.user_logout, name='logout'),
     path('category', views.category, name='category'),
     path('forum', views.forum, name='forum'),
+    path('change_form', views.change_form, name='change_form'),
 ]

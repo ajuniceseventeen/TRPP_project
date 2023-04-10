@@ -11,16 +11,16 @@ class Publication(models.Model):
     title = models.CharField("Заголовок", max_length=20)
     information = models.CharField("Текст", max_length=1000)
     release_date = models.DateField()
-    photo = models.ImageField(upload_to='photos', blank=True)
-    video = models.ImageField(upload_to='videos', blank=True)
-    audio = models.ImageField(upload_to='audio', blank=True)
+    photo = models.ImageField(upload_to='photos/', blank=True)
+    video = models.ImageField(upload_to='videos/', blank=True)
+    audio = models.ImageField(upload_to='audio/', blank=True)
 
 class Categories(models.Model):
     # название категорий, краткое описание, мб картинка(аналогичная медиа)
     publications = models.ManyToManyField(Publication, blank="True")
     name = models.CharField("Назване категории", max_length=20, unique=True)
     information = models.CharField("Краткая информация", max_length=200)
-    photo = models.ImageField(upload_to='photos', default='photos/base.jpg')
+    photo = models.ImageField(upload_to='photos/', default='photos/base.jpg')
 
 class Likes(models.Model):
     # пользователь, публкация
@@ -33,4 +33,4 @@ class CustomUser(AbstractUser):
     publications = models.ManyToManyField(Publication,   blank="True")
     rating = models.IntegerField('Рейтинг', default=0)
     information = models.CharField('Информация', default="", max_length=200)
-    photo = models.ImageField(upload_to='photos', default='photos/base.jpg')
+    photo = models.ImageField(upload_to='photos/', default='photos/base.jpg')
