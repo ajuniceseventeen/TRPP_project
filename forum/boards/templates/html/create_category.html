@@ -1,0 +1,17 @@
+{% extends 'html/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <!-- вот сюда основной контент  -->
+    <div class="create_category_body">
+        <h1 align="center">Категории</h1>
+        <form method='post' class="registration_body" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p  }}
+            <button type="submit" class="btn btn-primary btn-block" >создать</button>
+        </form>
+    </div>
+{% endblock %}

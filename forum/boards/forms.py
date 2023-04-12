@@ -1,6 +1,6 @@
 from django.forms import ModelForm, TextInput, CharField, EmailField, EmailInput, PasswordInput, ImageField, FileInput
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
-from .models import CustomUser, Publication
+from .models import CustomUser, Publication, Categories, Likes
 
 class UserLoginForm(AuthenticationForm):
     # вход
@@ -42,9 +42,10 @@ class CustomUserChangeForm(ModelForm):
 
 class CreatePublicationForm(ModelForm):
     class Meta:
-        pass
-        # пример создание формы
-
+        model = Publication
+        fields = ('title', 'information', 'photo', 'video', 'audio', 'release_date')
 
 class CreateCategoryForm(ModelForm):
-    pass
+    class Meta:
+        model = Categories
+        fields = ('name', 'information', 'photo')

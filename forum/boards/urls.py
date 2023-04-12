@@ -26,7 +26,8 @@ urlpatterns = [
     path('registration', views.registration, name='registration'),
     path('login', views.user_login, name='login'),
     path('logout', views.user_logout, name='logout'),
-    path('category', views.category, name='category'),
+    path('category', views.create_category, name='category'),
+    path('publication', views.create_publication, name='publication'),
     path('forum', views.forum, name='forum'),
     path('change_form', views.change_form, name='change_form'),
 ]

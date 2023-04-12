@@ -3,8 +3,8 @@ from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.http import HttpResponse
 
-from .forms import CustomUserCreationForm, CustomUserChangeForm, UserLoginForm
-from .models import CustomUser
+from .forms import CustomUserCreationForm, CustomUserChangeForm, UserLoginForm, CreatePublicationForm, CreateCategoryForm
+from .models import CustomUser, Publication, Categories
 import re
 
 def main_page(request):
@@ -14,7 +14,6 @@ def main_page(request):
 def user_logout(request):
     logout(request)
     return redirect('login')
-
 
 def user_login(request):
     if request.method == 'POST':
@@ -27,7 +26,6 @@ def user_login(request):
         form = UserLoginForm()
     context = {'title': 'Вход', 'form': form}
     return render(request, 'html/login.html', context)
-
 
 def registration(request):
     if request.method == 'POST':
@@ -64,10 +62,33 @@ def change_form(request):
         context = {'title': 'Домашняя страница'}
         return render(request, 'html/home.html', context)
 
-def category(request):
-    context = {'title': 'Category'}
-    return render(request, 'html/category.html', context)
+def create_category(request):
+    if request.method == 'POST':
+        form = CreateCategoryForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Успешная категория')
+            return redirect('main_page')
+        else:
+            messages.error(request, 'Ошибка создания')
+    else:
+        form = CreateCategoryForm()
+    context = {'title': 'Регистрация', 'form': form}
+    return render(request, 'html/create_category.html', context)
+
+def create_publication(request):
+    if request.method == 'POST':
+        form = CreatePublicationForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Успешная публикация')
+            return redirect('main_page')
+        else:
+            messages.error(request, 'Ошибка создания')
+    else:
+        form = CreatePublicationForm()
+    context = {'title': 'Регистрация', 'form': form}
+    return render(request, 'html/create_publication.html', context)
 
 def forum(request):
-    context = {'title': 'Forum'}
-    return render(request, 'html/forum.html', context)
+    pass

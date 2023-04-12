@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1aee2722-b552-40ec-a250-b3aa3f3e73dc" name="Changes" comment="создал структуру, надо доработать бд, ориентировочная, регистрация, вход/выход. Нужны HTML шаблоны(Хэдер, и структура форума)">
-      <change afterPath="$PROJECT_DIR$/forum/boards/templates/html/changeform.html" afterDir="false" />
+    <list default="true" id="1aee2722-b552-40ec-a250-b3aa3f3e73dc" name="Changes" comment="доделал пользователя и добавил изсенение профиля">
+      <change afterPath="$PROJECT_DIR$/forum/boards/templates/html/create_category.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forum/boards/templates/html/create_publication.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/boards/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/boards/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/boards/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/boards/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forum/boards/templates/html/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/forum/boards/templates/html/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/boards/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/boards/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/boards/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/boards/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/forum/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forum/forum/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/forum/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +28,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2O6gTjdDjJOSMf3CmMF7xjyKV2T" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -38,7 +39,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/TProject" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -65,7 +66,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681071879344</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="доделал пользователя и добавил изсенение профиля">
+      <created>1681098038798</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681098038798</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -82,6 +90,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="создал структуру, надо доработать бд, ориентировочная, регистрация, вход/выход. Нужны HTML шаблоны(Хэдер, и структура форума)" />
-    <option name="LAST_COMMIT_MESSAGE" value="создал структуру, надо доработать бд, ориентировочная, регистрация, вход/выход. Нужны HTML шаблоны(Хэдер, и структура форума)" />
+    <MESSAGE value="доделал пользователя и добавил изсенение профиля" />
+    <option name="LAST_COMMIT_MESSAGE" value="доделал пользователя и добавил изсенение профиля" />
   </component>
 </project>
