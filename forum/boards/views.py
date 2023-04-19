@@ -4,6 +4,7 @@ from django.contrib.auth import login, logout
 from django.http import HttpResponse
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm, UserLoginForm, CreatePublicationForm, CreateCategoryForm
+from .forms import CreateLikeForm
 from .models import CustomUser, Publication, Categories
 import re
 
@@ -73,7 +74,7 @@ def create_category(request):
             messages.error(request, 'Ошибка создания')
     else:
         form = CreateCategoryForm()
-    context = {'title': 'Регистрация', 'form': form}
+    context = {'title': 'Создание категории', 'form': form}
     return render(request, 'html/create_category.html', context)
 
 def create_publication(request):
@@ -87,8 +88,37 @@ def create_publication(request):
             messages.error(request, 'Ошибка создания')
     else:
         form = CreatePublicationForm()
-    context = {'title': 'Регистрация', 'form': form}
+    context = {'title': 'Создание публикации', 'form': form}
     return render(request, 'html/create_publication.html', context)
+
+
+def create_like(request):
+    if request.method == 'POST':
+        form = CreateLikeForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Успешная лайк')
+            return redirect('main_page')
+        else:
+            messages.error(request, 'Ошибка создания')
+    else:
+        form = CreateLikeForm()
+    context = {'title': 'Создание лайка', 'form': form}
+    return render(request, 'html/create_like.html', context)
+
+def categories(request):
+    context = {'title': 'Категории'}
+    return render(request, 'html/categories.html', context)
+
+def publications(request):
+    context = {'title': 'Публикации'}
+    return render(request, 'html/publications.html', context)
+
+
+def likes(request):
+    context = {'title': 'Лайки'}
+    return render(request, 'html/likes.html', context)
+
 
 def forum(request):
     pass

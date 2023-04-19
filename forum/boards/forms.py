@@ -49,3 +49,8 @@ class CreateCategoryForm(ModelForm):
     class Meta:
         model = Categories
         fields = ('name', 'information', 'photo')
+
+class CreateLikeForm(ModelForm):
+    class Meta:
+        model = Likes
+        fields = ('publication', 'user')

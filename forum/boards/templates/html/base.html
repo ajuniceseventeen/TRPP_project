@@ -26,6 +26,18 @@
                     <p class="welcome px-2 link-secondary" >Добро пожаловать, {{user.username}}</p>
                     <li><a href="{% url 'change_form' %}" class="nav-link active btn-sm">Изменить</a></li>
                     <li><a href="{% url 'logout' %}" class="nav-link active btn-sm">Выход</a></li>
+
+                    <!-- временная "вещь"  -->
+                    <li><a href="{% url 'create_category' %}" class="nav-link active btn-sm">созд. категорий</a></li>
+                    <li><a href="{% url 'create_publication' %}" class="nav-link active btn-sm">созд. публикаций</a></li>
+                    <li><a href="{% url 'create_like' %}" class="nav-link active btn-sm">созд. лайков</a></li>
+
+                    <!-- может не временная "вещь" -->
+                    <li><a href="{% url 'publications' %}" class="nav-link active btn-sm">категории</a></li>
+                    <li><a href="{% url 'categories' %}" class="nav-link active btn-sm">публикации</a></li>
+                    <li><a href="{% url 'likes' %}" class="nav-link active btn-sm">лайки</a></li>
+
+
                 {% else %}
                     <a href="{% url 'login' %}" class="nav-link active btn-sm">Вход</a>
                     <a href="{% url 'registration' %}" class="nav-link active btn-sm">Регистрация</a>
