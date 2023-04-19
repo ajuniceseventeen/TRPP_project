@@ -43,7 +43,7 @@ class CustomUserChangeForm(ModelForm):
 class CreatePublicationForm(ModelForm):
     class Meta:
         model = Publication
-        fields = ('title', 'information', 'photo', 'video', 'audio', 'release_date')
+        fields = ('title', 'information', 'photo', 'video', 'audio')
 
 class CreateCategoryForm(ModelForm):
     class Meta:
@@ -51,6 +51,8 @@ class CreateCategoryForm(ModelForm):
         fields = ('name', 'information', 'photo')
 
 class CreateLikeForm(ModelForm):
+    # выбор среди объектов, должен соверщшаться автоматически без выбора т.е. это  тестовая форма
+    
     class Meta:
         model = Likes
         fields = ('publication', 'user')

@@ -1,0 +1,13 @@
+{% extends 'html/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <!-- вот сюда основной контент  -->
+    <h1>Тут должно отображаться все о пользователе</h1>
+    <a href="{% url 'publications' %}" class="nav-link active btn-sm">Мои публикации</a>
+    <a href="{% url 'likes' %}" class="nav-link active btn-sm">Мои лайки</a>
+    <a href="{% url 'change_form' %}" class="nav-link active btn-sm">Изменить профиль</a>
+{% endblock %}

@@ -15,16 +15,23 @@ class Publication(models.Model):
     photo = models.ImageField(upload_to='photos/', blank=True)
     video = models.ImageField(upload_to='videos/', blank=True)
     audio = models.ImageField(upload_to='audio/', blank=True)
+    # count_like = models.IntegerField("Лайки", max_length=1000, default=0)
+    # hidden = models.BooleanField("Спрятано(удалено)", default=False)
 
 class Likes(models.Model):
     # отношение пользователя к данному посту можно понадабвлять закрепы, лайки комменты и прочего
     publication = models.ForeignKey(Publication, on_delete=models.CASCADE)
     user = models.BooleanField("Стоит ли лайк", default=False)
+    marker = models.BooleanField("Маркер", default=False)
+    
+    # просмотренно ли, хз надо ли
+    # viewed = models.BooleanField("Просмотренно", default=False)
+    
 
 class Categories(models.Model):
     # название категорий, краткое описание, мб картинка(аналогичная медиа)
     publications = models.ManyToManyField(Publication, blank=True)
-    name = models.CharField("Назване категории", max_length=20, unique=True)
+    name = models.CharField("Название категории", max_length=20, unique=True)
     information = models.CharField("Краткая информация", max_length=200, blank=True)
     photo = models.ImageField(upload_to='photos/', default='photos/base.jpg', blank=True)
 

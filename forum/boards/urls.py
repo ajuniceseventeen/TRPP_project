@@ -31,6 +31,7 @@ urlpatterns = [
     path('create_like', views.create_like, name='create_like'),
     path('categories', views.categories, name='categories'),
     path('publications', views.publications, name='publications'),
+    path('profile', views.profile, name='profile'),
     path('likes', views.likes, name='likes'),
     path('forum', views.forum, name='forum'),
     path('change_form', views.change_form, name='change_form'),

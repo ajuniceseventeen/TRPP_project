@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm, UserLoginForm, CreatePublicationForm, CreateCategoryForm
 from .forms import CreateLikeForm
-from .models import CustomUser, Publication, Categories
+from .models import CustomUser, Publication, Categories, Likes
 import re
 
 def main_page(request):
@@ -83,20 +83,38 @@ def create_publication(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Успешная публикация')
+
+            # надо дописать сохранение в таблицу пользователя и выбранной категории(добаить в форму возможнотсь выбора)
+            publication = Publication.objects.all()[::-1][0]
+
+            current_user = request.user
+            current_user.publications.add(publication)
+
+            current_category = Categories.objects.get(name=request.POST['category'])
+            current_category.publications.add(publication)
+
             return redirect('main_page')
         else:
             messages.error(request, 'Ошибка создания')
     else:
         form = CreatePublicationForm()
-    context = {'title': 'Создание публикации', 'form': form}
+    all_categories = Categories.objects.all()
+    print([i.name for i in all_categories])
+    context = {'title': 'Создание публикации', 'form': form, 'categories': all_categories}
     return render(request, 'html/create_publication.html', context)
 
-
 def create_like(request):
+    # тестовая форма
     if request.method == 'POST':
         form = CreateLikeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            # необходимо соединить лайк с пользователем
+            like = Likes.objects.all()[::-1][0]
+
+            current_user = request.user
+            current_user.likes.add(like)
+
             messages.success(request, 'Успешная лайк')
             return redirect('main_page')
         else:
@@ -107,17 +125,36 @@ def create_like(request):
     return render(request, 'html/create_like.html', context)
 
 def categories(request):
-    context = {'title': 'Категории'}
+    all_categories = Categories.objects.all()
+    context = {'title': 'Категории', 'all_categories': all_categories}
     return render(request, 'html/categories.html', context)
 
 def publications(request):
-    context = {'title': 'Публикации'}
+    current_user = request.user
+    if current_user.is_staff:
+        all_publications = Publication.objects.all()
+    else:
+        # all_publications = CustomUser.publications.filter(customuser_id=request.user.id)
+        # result = CustomUser.publications.
+        all_publications = Publication.objects.all()
+    context = {'title': 'Публикации', 'all_publications': all_publications}
     return render(request, 'html/publications.html', context)
 
 
 def likes(request):
-    context = {'title': 'Лайки'}
+    # админ знает все вуааахаха
+
+    current_user = request.user
+    if current_user.is_staff:
+        all_likes = Likes.objects.all()
+    else:
+        all_likes = CustomUser.likes.objects.filter(customuser_id=request.user.id)
+    context = {'title': 'Лайки', 'all_likes': all_likes}
     return render(request, 'html/likes.html', context)
+
+def profile(request):
+    context = {'title': 'Профиль'}
+    return render(request, 'html/profile.html', context)
 
 
 def forum(request):

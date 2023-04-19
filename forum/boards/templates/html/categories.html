@@ -7,4 +7,12 @@
 {% block content %}
     <!-- вот сюда основной контент  -->
     <h1>Тут должны быть перечисленны категории</h1>
+
+    {% if all_categories %}
+        <div>
+            {% for el in all_categories %}
+                <h4>{{ el.name }}</h4>
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock %}

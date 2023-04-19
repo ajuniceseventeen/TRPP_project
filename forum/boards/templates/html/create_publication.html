@@ -11,6 +11,16 @@
         <form method='post' class="registration_body" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p  }}
+
+            {% if categories %}
+                <!-- category элемент откуда беру данные, его указывать в реквесте -->
+                <select name="category" required class="form-select" aria-label="Default select example">
+                    {% for el in categories %}
+                        <option>{{el.name}}</option>
+                    {% endfor %}
+                </select>
+            {% endif %}<br>
+
             <button type="submit" class="btn btn-primary btn-block" >создать</button>
         </form>
     </div>

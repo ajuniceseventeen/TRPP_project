@@ -7,4 +7,12 @@
 {% block content %}
     <!-- вот сюда основной контент  -->
     <h1>Тут должны быть публикации определенной категории</h1>
+
+    {% if all_publications %}
+        <div>
+            {% for el in all_publications %}
+                <h4>{{ el.title }}</h4>
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock %}

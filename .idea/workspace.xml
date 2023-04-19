@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1aee2722-b552-40ec-a250-b3aa3f3e73dc" name="Changes" comment="доделал пользователя и добавил изсенение профиля">
-      <change afterPath="$PROJECT_DIR$/forum/boards/templates/html/categories.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forum/boards/templates/html/create_like.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forum/boards/templates/html/likes.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forum/boards/templates/html/publications.html" afterDir="false" />
+    <list default="true" id="1aee2722-b552-40ec-a250-b3aa3f3e73dc" name="Changes" comment="добавил формачек и страничек временных, начинающиеся с create будут частью других страниц">
+      <change afterPath="$PROJECT_DIR$/forum/boards/templates/html/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forum/boards/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/boards/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/boards/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/boards/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/boards/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/boards/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/boards/templates/html/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/forum/boards/templates/html/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/boards/templates/html/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/forum/boards/templates/html/categories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/boards/templates/html/category.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/boards/templates/html/create_publication.html" beforeDir="false" afterPath="$PROJECT_DIR$/forum/boards/templates/html/create_publication.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/boards/templates/html/likes.html" beforeDir="false" afterPath="$PROJECT_DIR$/forum/boards/templates/html/likes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/boards/templates/html/publications.html" beforeDir="false" afterPath="$PROJECT_DIR$/forum/boards/templates/html/publications.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/boards/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/boards/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/boards/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/boards/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/forum/db.sqlite3" afterDir="false" />
@@ -83,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681323206554</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="добавил формачек и страничек временных, начинающиеся с create будут частью других страниц">
+      <created>1681932284855</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681932284855</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -101,6 +110,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="создал структуру, надо доработать бд, ориентировочная, регистрация, вход/выход. Нужны HTML шаблоны(Хэдер, и структура форума)" />
     <MESSAGE value="доделал пользователя и добавил изсенение профиля" />
-    <option name="LAST_COMMIT_MESSAGE" value="доделал пользователя и добавил изсенение профиля" />
+    <MESSAGE value="добавил формачек и страничек временных, начинающиеся с create будут частью других страниц" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил формачек и страничек временных, начинающиеся с create будут частью других страниц" />
   </component>
 </project>

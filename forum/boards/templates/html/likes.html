@@ -7,4 +7,12 @@
 {% block content %}
     <!-- вот сюда основной контент  -->
     <h1>Тут должны отображаться все лайки пользователя</h1>
+    <!-- надо сделать красиво (предаоложительно табличкой, я хз)  -->
+    {% if all_likes %}
+        <div>
+            {% for el in all_likes %}
+                <h4>{{ el.publication.title }}       {{ el.user }}</h4>
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock %}
